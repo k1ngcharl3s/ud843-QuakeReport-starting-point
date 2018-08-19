@@ -43,9 +43,6 @@ public final class QueryUtils {
         ArrayList<Earthquake> earthquakes = new ArrayList<>();
 
 
-        // Create a new {@link Earthquake} object with the magnitude, location, time,
-        // and url from the JSON response.
-        Earthquake earthquake = new Earthquake(magnitude, location, time, url);
 
         // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -65,6 +62,12 @@ public final class QueryUtils {
                 String location = properties.getString("place");
                 long time = properties.getLong("time");
                 String url = properties.getString("url");
+
+                // Create a new {@link Earthquake} object with the magnitude, location, time,
+                // and url from the JSON response.
+                Earthquake earthquake = new Earthquake(magnitude, location, time, url);
+                // Add the new {@link Earthquake} to the link of earthquakes
+                earthquakes.add(earthquake);
 
 
             }
